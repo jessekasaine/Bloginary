@@ -1,0 +1,18 @@
+﻿@model Bloginary.Models.Blog
+@{
+    ViewData["Title"] = "Blog Detail";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <img src=@Model.Image class="card-img-top" alt="...">
+            <h5 class="card-title">@Model.Title</h5>
+            <p class="card-text">@Model.Content</p>
+            <p class="card-text">@Model.PublicationDate</p>
+            <p class="card-text">@Model.EditedDate</p>
+            <p class="card-text">@Model.Category</p>
+            <p class="card-text">@Model.Tag</p>
+        </div>
+    </div>
+</div>
