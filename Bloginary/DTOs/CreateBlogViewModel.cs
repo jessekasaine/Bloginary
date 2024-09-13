@@ -1,4 +1,5 @@
 ﻿using Bloginary.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Bloginary.DTOs
 {
@@ -11,6 +12,9 @@ namespace Bloginary.DTOs
         public DateOnly PublicationDate { get; set; }
         public DateOnly? EditedDate { get; set; }
         public required IFormFile Image { get; set; }
+        //public IEnumerable<SelectListItem>? Category { get; set; }
+        //public IEnumerable<SelectListItem>? Tag { get; set; }
+
         public List<Tag>? Tag { get; set; }
         public List<Category>? Category { get; set; }
     }

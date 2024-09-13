@@ -13,9 +13,9 @@ namespace Bloginary.Services
         public PhotoService(IOptions<CloudinarySettings> config)
         {
             var account = new Account(
-                config.Value.CloudName = "dbu6ncxdh",
-                config.Value.ApiKey = "591655465543254",
-                config.Value.ApiSecret = "pHOw3qGVGSN0-xLljTmVWCuPHMM"
+                config.Value.CloudName = "",
+                config.Value.ApiKey = "",
+                config.Value.ApiSecret = ""
                 );
             _config = new Cloudinary( account );
         }

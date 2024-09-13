@@ -3,6 +3,7 @@ using Bloginary.DTOs;
 using Bloginary.Interfaces;
 using Bloginary.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bloginary.Controllers
@@ -32,6 +33,9 @@ namespace Bloginary.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.Category = _db.Categories.Select(n => n.CategoryName);
+            ViewBag.Tag = _db.Tags.Select(n => n.TagName);
+
             return View();
         }
 
@@ -52,6 +56,9 @@ namespace Bloginary.Controllers
                     Category = blogVM.Category,
                     Image = result.Url.ToString()
                 };
+
+            
+
                 _db.Add(blog);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -60,6 +67,9 @@ namespace Bloginary.Controllers
             {
                 ModelState.AddModelError("", "Photo upload failed");
             }
+            //ViewBag.Category = _db.Categories.ToList();
+            //ViewBag.Tag = _db.Tags.ToList();
+
             return View(blogVM);
         }
     }
